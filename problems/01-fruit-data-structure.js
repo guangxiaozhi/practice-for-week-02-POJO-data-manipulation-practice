@@ -11,6 +11,15 @@ console.log(firstFruitObject(fruits));
 
 function firstFruitObject(fruits) {
     // Your code here
+    /*
+    let firstFruit = fruits[0];
+    let obj = {};
+    for (let key in firstFruit) {
+        obj[key] = firstFruit[key];
+    };
+    return obj;
+    */
+    return fruits[0];
 }
 
 
@@ -25,6 +34,14 @@ console.log(lastFruitObject(fruits));
 
 function lastFruitObject(fruits) {
     // Your code here
+    /*let lastFruit = fruits[fruits.length - 1];
+    let obj = {};
+    let keys  = Object.keys(lastFruit)
+    keys.forEach(key => {
+        obj[key] = lastFruit[key];
+    })
+    return obj;*/
+    return fruits[fruits.length - 1];
 }
 
 
@@ -40,6 +57,14 @@ console.log(indexFruitObject(17, fruits));
 
 function indexFruitObject(index, fruits) {
     // Your code here
+    /*let fruit = fruits[index];
+    let obj = {};
+    let keys  = Object.keys(fruit)
+    keys.forEach(key => {
+        obj[key] = fruit[key];
+    })
+    return obj;*/
+    return fruits[index];
 }
 
 
@@ -55,6 +80,9 @@ console.log(fruitNames(fruits));
 
 function fruitNames(fruits) {
     // Your code here
+    return fruits.map(fruit => {
+        return fruit.name;
+    });
 }
 
 /* 05. `getFruitKeys()` - Return a list of all of the keys for each fruit record.
@@ -66,6 +94,8 @@ NOTE: Call a function you previously wrote as a helper function.
 
 function getFruitKeys(fruits) {
     // Your code here
+    let fruit = firstFruitObject(fruits);
+    return Object.keys(fruit);
 }
 
 
@@ -80,6 +110,9 @@ console.log(getNutritionsKeys(fruits));
 
 function getNutritionsKeys(fruits) {
     // Your code here
+    let fruit =  fruits[0];
+    let obj = fruit["nutritions"];
+    return Object.keys(obj);
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/

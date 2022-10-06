@@ -10,6 +10,10 @@ console.log(addKeyAndValueToAll(fruits, "inStock", true));
 
 function addKeyAndValueToAll(array, key, value) {
     // Your code here
+    array.forEach(fruit => {
+        fruit[key] = value;
+    })
+    return array;
 }
 
 /* 08. `addKeyAndValueToOne()` - Return object at the given index array, adding the given key and
@@ -21,6 +25,9 @@ console.log(addKeyAndValueToOne(fruits, "color", "red", 1));
 
 function addKeyAndValueToOne(array, key, value, index) {
     // Your code here
+    let fruit = array[index];
+    fruit[key] = value;
+    return fruit;
 }
 
 /* 09. `updateKeyName()` - Change the old key name to the new key name in all
@@ -33,6 +40,17 @@ console.log(updateKeyName(fruits, "nutritions", "nutrition"));
 
 function updateKeyName(array, oldKey, newKey) {
     // Your code here
+    array.map(fruit => {
+        for (let key in fruit) {
+            if (key === oldKey) {
+                fruit[newKey] = fruit[oldKey];
+                delete fruit[oldKey];
+            }else{
+                fruit[key] = fruit[key];
+            }
+        }
+    })
+    return array;
 }
 
 /* 10. `updateIdValues()` - Change all of the "id" values to six-character
@@ -50,6 +68,17 @@ console.log(updateIdValues(fruits));
 
 function updateIdValues(array) {
     // Your code here
+    return array.map(fruit =>{
+        let num = fruit["id"];
+        let idStr = num.toString();
+        let length = idStr.length;
+        let addStr = "";
+        for (let i = 0; i < 6 - length; i++) {
+            addStr += "0";
+        }
+        fruit["id"] =addStr + idStr;
+        return fruit["id"];
+    })
 }
 
 /* 11. `deleteKeysandValues()` - Delete the keyToDelete from the nutritions
@@ -61,6 +90,23 @@ console.log(deleteKeysAndValues(fruits, "sugar"));
 
 function deleteKeysAndValues(array, keyToDelete) {
     // Your code here
+    array.forEach(fruit => {
+        removeKey(fruit, keyToDelete);
+    })
+    return array;
+}
+
+function removeKey(fruit, keyToDelete) {
+    if (typeof fruit !== "object") {
+        return;
+    }
+    for (let key in fruit) {
+        if (key === keyToDelete) {
+            delete fruit[key];
+        }else {
+            removeKey(fruit[key],keyToDelete);
+        }
+    }
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
