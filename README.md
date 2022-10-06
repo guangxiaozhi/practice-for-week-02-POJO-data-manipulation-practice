@@ -74,4 +74,4 @@ pairs.
 Run `mocha test/02-manipulate-fruit-objects-spec.js` to run all the test specs
 for this phase. There are multiple test specs for each problem. Run the tests
 often, as the error messages for the failed tests will help you to debug your
-code.
+code.# practice-for-week-02-POJO-data-manipulation-practice
